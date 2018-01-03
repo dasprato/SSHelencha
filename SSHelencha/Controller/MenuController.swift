@@ -27,6 +27,8 @@ class MenuController: UIViewController{
         arrayOfMenus.append(Menu(titleForCell: "Projects"))
         arrayOfMenus.append(Menu(titleForCell: "Directorial Bodies"))
         arrayOfMenus.append(Menu(titleForCell: "Contact Us"))
+        arrayOfMenus.append(Menu(titleForCell: "Image Gallery"))
+        
         setupMainCollectionView()
         view.backgroundColor = UIColor.white
         mainCollectionView.backgroundColor = UIColor.white
@@ -120,10 +122,13 @@ extension MenuController: UICollectionViewDelegate, UICollectionViewDataSource, 
             let viewControllerToPush = ProjectsController()
             self.navigationController?.pushViewController(viewControllerToPush, animated: true)
         case 7:
-            let viewControllerToPush = DiretorialBodiesController()
+            let viewControllerToPush = DirectorialBodiesController()
             self.navigationController?.pushViewController(viewControllerToPush, animated: true)
         case 8:
             let viewControllerToPush = ContactUsController()
+            self.navigationController?.pushViewController(viewControllerToPush, animated: true)
+        case 9:
+            let viewControllerToPush = ImageGalleryController()
             self.navigationController?.pushViewController(viewControllerToPush, animated: true)
         default:
             break

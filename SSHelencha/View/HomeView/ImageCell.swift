@@ -12,7 +12,7 @@ class ImageCell: UICollectionViewCell {
     
     var homeImage: HomeImage? {
         didSet {
-            vesselImage.sd_setImage(with: URL(string: (homeImage?.urlOfImage!)!), placeholderImage: #imageLiteral(resourceName: "placeHolder"), options: [.continueInBackground, .progressiveDownload])
+            vesselImage.sd_setImage(with: URL(string: (homeImage?.urlOfImage!)!), placeholderImage: UIImage(), options: [.continueInBackground, .progressiveDownload])
             vesselImageTitle.text = homeImage?.titleOfImage
         }
     }
@@ -24,7 +24,7 @@ class ImageCell: UICollectionViewCell {
         NSLayoutConstraint.activate([vesselImage.topAnchor.constraint(equalTo: topAnchor), vesselImage.rightAnchor.constraint(equalTo: rightAnchor), vesselImage.leftAnchor.constraint(equalTo: leftAnchor), vesselImage.bottomAnchor.constraint(equalTo: bottomAnchor)])
         
         addSubview(vesselImageTitle)
-        NSLayoutConstraint.activate([vesselImageTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 8), vesselImageTitle.rightAnchor.constraint(equalTo: rightAnchor), vesselImageTitle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)])
+        NSLayoutConstraint.activate([vesselImageTitle.leftAnchor.constraint(equalTo: leftAnchor), vesselImageTitle.rightAnchor.constraint(equalTo: rightAnchor), vesselImageTitle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)])
         
     }
     
@@ -39,14 +39,16 @@ class ImageCell: UICollectionViewCell {
         pi.contentMode = .scaleAspectFill
         return pi
     }()
-    private var vesselImageTitle: UILabel = {
-        let pi = UILabel()
+    
+    private var vesselImageTitle: FlexibleTextView = {
+        let pi = FlexibleTextView()
         pi.translatesAutoresizingMaskIntoConstraints = false
         pi.contentMode = .scaleAspectFit
         pi.text = "Sample Title For Now"
         pi.textAlignment = .left
-        pi.font = UIFont.boldSystemFont(ofSize: pi.font.pointSize)
-        pi.textColor = UIColor.white
+        pi.font = UIFont.boldSystemFont(ofSize: 16)
+        pi.textColor = UIColor.gray
+        pi.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         return pi
     }()
     

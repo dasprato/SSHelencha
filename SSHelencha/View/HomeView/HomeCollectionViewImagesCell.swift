@@ -30,6 +30,17 @@ class HomeCollectionViewImagesCell: UICollectionViewCell {
         
         arrayOfHomeImage.append(HomeImage(titleOfImage: "Project Cargo carrying", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic13.jpg"))
         
+        layer.cornerRadius = 5.0
+        translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        clipsToBounds = true
+        backgroundColor = UIColor.white
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
+        layer.masksToBounds = false
+        
 
     }
     
@@ -42,6 +53,7 @@ class HomeCollectionViewImagesCell: UICollectionViewCell {
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
+        
         let rcv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         rcv.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         rcv.backgroundColor = UIColor.white
@@ -61,7 +73,7 @@ class HomeCollectionViewImagesCell: UICollectionViewCell {
         imagesCollectionView.register(ImageCell.self, forCellWithReuseIdentifier: imageCellId)
         
         contentView.addSubview(imagesCollectionView)
-        NSLayoutConstraint.activate([imagesCollectionView.leftAnchor.constraint(equalTo: leftAnchor), imagesCollectionView.rightAnchor.constraint(equalTo: rightAnchor), imagesCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor), imagesCollectionView.topAnchor.constraint(equalTo: topAnchor)])
+        NSLayoutConstraint.activate([imagesCollectionView.rightAnchor.constraint(equalTo: rightAnchor), imagesCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor), imagesCollectionView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width), imagesCollectionView.heightAnchor.constraint(equalTo: heightAnchor)])
         
     }
 }
