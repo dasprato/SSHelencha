@@ -10,6 +10,8 @@
 		4738F9CD700145BCA076DF34 /* Pods_SSHelencha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0503B716F58C8A4EF6B131 /* Pods_SSHelencha.framework */; };
 		D2172A5B1FFD5DF7003F0BD9 /* ImageGalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2172A5A1FFD5DF7003F0BD9 /* ImageGalleryController.swift */; };
 		D2172A5E1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2172A5D1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift */; };
+		D2B86FFB1FFD6D4E00CC8EC5 /* EnlargedImageGalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86FFA1FFD6D4E00CC8EC5 /* EnlargedImageGalleryController.swift */; };
+		D2B86FFE1FFD6DBF00CC8EC5 /* EnlargedImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86FFD1FFD6DBF00CC8EC5 /* EnlargedImageCollectionViewCell.swift */; };
 		D2E050C51FFCD79F00E46900 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E050C41FFCD79F00E46900 /* AppDelegate.swift */; };
 		D2E050CC1FFCD79F00E46900 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2E050CB1FFCD79F00E46900 /* Assets.xcassets */; };
 		D2E050CF1FFCD79F00E46900 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E050CD1FFCD79F00E46900 /* LaunchScreen.storyboard */; };
@@ -43,6 +45,8 @@
 		4A49CA6D5F57A2FBBD8C44E7 /* Pods-SSHelencha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSHelencha.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSHelencha/Pods-SSHelencha.release.xcconfig"; sourceTree = "<group>"; };
 		D2172A5A1FFD5DF7003F0BD9 /* ImageGalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryController.swift; sourceTree = "<group>"; };
 		D2172A5D1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		D2B86FFA1FFD6D4E00CC8EC5 /* EnlargedImageGalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargedImageGalleryController.swift; sourceTree = "<group>"; };
+		D2B86FFD1FFD6DBF00CC8EC5 /* EnlargedImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargedImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2E050C11FFCD79F00E46900 /* SSHelencha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSHelencha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2E050C41FFCD79F00E46900 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2E050CB1FFCD79F00E46900 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +114,14 @@
 			path = ImageGalleryView;
 			sourceTree = "<group>";
 		};
+		D2B86FFC1FFD6D5B00CC8EC5 /* EnlargedImageGalleryView */ = {
+			isa = PBXGroup;
+			children = (
+				D2B86FFD1FFD6DBF00CC8EC5 /* EnlargedImageCollectionViewCell.swift */,
+			);
+			path = EnlargedImageGalleryView;
+			sourceTree = "<group>";
+		};
 		D2E050B81FFCD79F00E46900 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +159,7 @@
 		D2E050DA1FFCDAB700E46900 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D2B86FFC1FFD6D5B00CC8EC5 /* EnlargedImageGalleryView */,
 				D2172A5C1FFD5EA7003F0BD9 /* ImageGalleryView */,
 				D2E051091FFD520A00E46900 /* DirectorialBodiesView */,
 				D2E050FE1FFD078E00E46900 /* MainView */,
@@ -169,6 +182,7 @@
 				D2E050F31FFCFD4000E46900 /* DirectorialBodiesController.swift */,
 				D2E050F51FFCFD4D00E46900 /* ContactUsController.swift */,
 				D2172A5A1FFD5DF7003F0BD9 /* ImageGalleryController.swift */,
+				D2B86FFA1FFD6D4E00CC8EC5 /* EnlargedImageGalleryController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -353,6 +367,7 @@
 				D2E051081FFD290200E46900 /* HomeCollectionViewWelcomeTextCell.swift in Sources */,
 				D2E050EE1FFCF62400E46900 /* CommercialImportController.swift in Sources */,
 				D2E051041FFD239200E46900 /* ClientImageCell.swift in Sources */,
+				D2B86FFE1FFD6DBF00CC8EC5 /* EnlargedImageCollectionViewCell.swift in Sources */,
 				D2E050C51FFCD79F00E46900 /* AppDelegate.swift in Sources */,
 				D2E050D91FFCD88000E46900 /* MenuController.swift in Sources */,
 				D2172A5B1FFD5DF7003F0BD9 /* ImageGalleryController.swift in Sources */,
@@ -363,6 +378,7 @@
 				D2E0510B1FFD523200E46900 /* DirectorialBodiesCollectionViewCell.swift in Sources */,
 				D2E050EC1FFCF60000E46900 /* MajorClientsController.swift in Sources */,
 				D2E050FC1FFD049300E46900 /* ImageCell.swift in Sources */,
+				D2B86FFB1FFD6D4E00CC8EC5 /* EnlargedImageGalleryController.swift in Sources */,
 				D2E0510D1FFD536700E46900 /* Director.swift in Sources */,
 				D2E050F81FFD020000E46900 /* HomeImage.swift in Sources */,
 				D2E050E61FFCF59F00E46900 /* HomeController.swift in Sources */,

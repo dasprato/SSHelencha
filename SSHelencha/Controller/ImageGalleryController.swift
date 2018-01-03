@@ -10,7 +10,7 @@ import UIKit
 
 class ImageGalleryController: UIViewController {
 
-    let imageGalleryCollectionViewCellId = "mainCollectionViewCellId"
+    let imageGalleryCollectionViewCellId = "imageGalleryCollectionViewCellId"
     var arrayOfImages = [ClientImage]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,6 +173,11 @@ extension ImageGalleryController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        self.currentCellIndex = indexPath.row
 //        open()
+        let viewControllerToPush = EnlargedImageGalleryController()
+        viewControllerToPush.itemToScrollTo = indexPath
+        viewControllerToPush.arrayOfImages = self.arrayOfImages
+        self.navigationController?.pushViewController(viewControllerToPush, animated: true)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
