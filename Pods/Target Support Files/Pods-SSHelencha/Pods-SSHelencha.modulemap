@@ -1,0 +1,6 @@
+framework module Pods_SSHelencha {
+  umbrella header "Pods-SSHelencha-umbrella.h"
+
+  export *
+  module * { export * }
+}
