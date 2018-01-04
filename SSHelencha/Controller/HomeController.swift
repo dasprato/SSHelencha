@@ -2,7 +2,7 @@
 //  HomeController.swift
 //  SSHelencha
 //
-//  Created by Prato Das on 2018-01-03.
+//  Created by Prato Das on 2018-01-04.
 //  Copyright © 2018 Prato Das. All rights reserved.
 //
 
@@ -10,10 +10,13 @@ import UIKit
 
 class HomeController: UIViewController {
 
-    let homeCollectionViewCellId = "homeCollectionViewCellId"
-    let homeImageCollectionViewCellId = "homeImageCollectionViewCellId"
-    let homeCollectionViewOurClientCellId = "homeCollectionViewOurClientCellId"
-    let homeCollectionViewWelcomeTextCellId = "homeCollectionViewWelcomeTextCellId"
+    let imageCellId = "imageCellId"
+    var arrayOfHomeImage = [HomeImage]()
+    
+    let clientImageCellId = "clientImageCellId"
+    var arrayOfClientImages = [ClientImage]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -22,95 +25,154 @@ class HomeController: UIViewController {
         self.navigationController?.navigationBar.layer.shadowOpacity = 1.0
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationItem.title = "Home"
-        setupHomeCollectionView()
-        addObservers()
+
+
+        populateArray()
+        setupImagesCollectionView()
+        setupClientImagesCollectionView()
+        setupScrollView()
     }
     
-    func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(addedText), name: NSNotification.Name.init("addedText"), object: nil)
+    func setupScrollView() {
+        view.addSubview(mainScrollView)
+        NSLayoutConstraint.activate([mainScrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor), mainScrollView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor), mainScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+        mainScrollView.contentSize.height = 1000
+        mainScrollView.addSubview(imagesCollectionView)
+        NSLayoutConstraint.activate([imagesCollectionView.heightAnchor.constraint(equalToConstant: view.frame.width * 9/20), imagesCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width), imagesCollectionView.topAnchor.constraint(equalTo: mainScrollView.topAnchor), imagesCollectionView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor)])
+        mainScrollView.addSubview(welcomeTextLabel)
+        NSLayoutConstraint.activate([welcomeTextLabel.widthAnchor.constraint(equalToConstant: view.frame.width), welcomeTextLabel.topAnchor.constraint(equalTo: imagesCollectionView.bottomAnchor), welcomeTextLabel.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor)])
+                mainScrollView.addSubview(clientImagesCollectionView)
+                NSLayoutConstraint.activate([clientImagesCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width), clientImagesCollectionView.topAnchor.constraint(equalTo: welcomeTextLabel.bottomAnchor), clientImagesCollectionView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor), clientImagesCollectionView.heightAnchor.constraint(equalToConstant: view.frame.width * 0.1)])
+
     }
-    @objc func addedText() {
-        DispatchQueue.main.async {
-            self.homeCollectionView.reloadData()
-            self.homeCollectionView.layoutIfNeeded()
-        }
+    
+    
+    override func viewDidLayoutSubviews() {
+        mainScrollView.contentSize.height = imagesCollectionView.frame.height + welcomeTextLabel.frame.height + clientImagesCollectionView.frame.height
+    }
+    
+    
+    func populateArray() {
+        arrayOfHomeImage.append(HomeImage(titleOfImage: "Our Deck loader carrying Heavy Lift Cargo", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic8.jpg"))
+        arrayOfHomeImage.append(HomeImage(titleOfImage: "Floating Crane", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic5.jpg"))
+        arrayOfHomeImage.append(HomeImage(titleOfImage: "Our Deck loader carrying Heavy Lift Cargo", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic4.jpg"))
+        arrayOfHomeImage.append(HomeImage(titleOfImage: "Cargo loaded on our barge", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic6.jpg"))
+        arrayOfHomeImage.append(HomeImage(titleOfImage: "Project cargo loaded on our barge", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic7.jpg"))
+        arrayOfHomeImage.append(HomeImage(titleOfImage: "Heavy lift packages on our barge", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic11.jpg"))
+        arrayOfHomeImage.append(HomeImage(titleOfImage: "Heavy lift packages on our barge", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic12.jpg"))
+        arrayOfHomeImage.append(HomeImage(titleOfImage: "Project Cargo carrying", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic13.jpg"))
+        
+        
+        arrayOfClientImages.append(ClientImage(url: "http://sshelenchaltd.com/images/stories/logo/Summit-Power-Limited-2.jpg"))
+        arrayOfClientImages.append(ClientImage(url: "http://sshelenchaltd.com/images/stories/logo/S.-Alam-Logo.jpg"))
+        arrayOfClientImages.append(ClientImage(url: "http://sshelenchaltd.com/images/stories/logo/diamond-cement.png"))
+        arrayOfClientImages.append(ClientImage(url: "http://sshelenchaltd.com/images/stories/logo/BM-Energy_Logo_c-name_100h.jpg"))
+        arrayOfClientImages.append(ClientImage(url: "http://sshelenchaltd.com/images/stories/logo/download.png"))
+        arrayOfClientImages.append(ClientImage(url: "http://sshelenchaltd.com/images/stories/logo/gulf%20logo.jpg"))
         
     }
-
     
-    var homeCollectionView: UICollectionView = {
+    
+    var mainScrollView: UIScrollView = {
+        let msv = UIScrollView()
+        msv.translatesAutoresizingMaskIntoConstraints = false
+        msv.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+        msv.showsVerticalScrollIndicator = false
+        return msv
+    }()
+    
+    var imagesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 1
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.estimatedItemSize = CGSize(width: 1, height: 1)
+        
         let rcv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        rcv.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+        rcv.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        rcv.backgroundColor = UIColor.white
+        rcv.translatesAutoresizingMaskIntoConstraints = false
+        rcv.isPagingEnabled = true
+        rcv.keyboardDismissMode = .interactive
+        rcv.tag = 0
+        rcv.showsHorizontalScrollIndicator = false
+        return rcv
+    }()
+    
+    var clientImagesCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        let rcv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        rcv.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         rcv.backgroundColor = UIColor.white
         rcv.translatesAutoresizingMaskIntoConstraints = false
         rcv.clipsToBounds = true
         rcv.keyboardDismissMode = .interactive
         rcv.tag = 1
-        rcv.showsVerticalScrollIndicator = false
+        rcv.showsHorizontalScrollIndicator = false
         return rcv
     }()
-
     
-    func setupHomeCollectionView() {
-        
-        homeCollectionView.delegate = self
-        homeCollectionView.dataSource = self
-        homeCollectionView.register(HomeCollectionViewImagesCell.self, forCellWithReuseIdentifier: homeImageCollectionViewCellId)
-        homeCollectionView.register(HomeCollectionViewOurClientCell.self, forCellWithReuseIdentifier: homeCollectionViewOurClientCellId)
-        homeCollectionView.register(HomeCollectionViewWelcomeTextCell.self, forCellWithReuseIdentifier: homeCollectionViewWelcomeTextCellId)
-        homeCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: homeCollectionViewCellId)
-        
-        
-        
-                view.addSubview(homeCollectionView)
-        NSLayoutConstraint.activate([homeCollectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor), homeCollectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor), homeCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor), homeCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)])
-        
+    var welcomeTextLabel: FlexibleTextView = {
+        let wtl = FlexibleTextView()
+        wtl.translatesAutoresizingMaskIntoConstraints = false
+        wtl.textColor = UIColor.lightGray
+        wtl.font = UIFont.boldSystemFont(ofSize: 14)
+        wtl.isUserInteractionEnabled = false
+        wtl.text = "Welcome to the SS Helencha Limited Company profile. At SS Helencha, we understand that your primary concern is to get your freight from one point to another point, safely and reliably. With more than 5 years of experience in the logistics industry since 2010, we can provide you with the peace of mind you need to trust us with your freight\n\nLogistics is the backbone of commerce, and our working experience with multi-national companies and strong financial strengths allows handling more than 2 Lac Metric Tons of cargo per year. Our employees our same conviction for on-time delivery of cargo and our fleet of Vessels, Barges, Tug Boats & Cranes ensure that we have the right solution for your shipping needs.\n\nWe believe that serving our clients is our top priority! To demonstrate our commitment to that philosophy, we are nearing completion of an additional three vessels, two drum Barge and one Tug Boat. We expect to take delivery of these vessels, Barge and Tug Boat 2016, and the extra capacity means that we can handle an even bigger workload to support our growing clients.\n\nWhy place your trust in lesser companies and risk delayed shipments or damaged cargo? At SS Helencha, our number one priority is ensuring that your cargo arrives at its destination free of damages and free of delays. Contact us today to discuss how we can meet and exceed your shipping needs."
+        return wtl
+    }()
+    
+    func setupImagesCollectionView() {
+        imagesCollectionView.delegate = self
+        imagesCollectionView.dataSource = self
+        imagesCollectionView.register(ImageCell.self, forCellWithReuseIdentifier: imageCellId)
     }
     
-
+    func setupClientImagesCollectionView() {
+        clientImagesCollectionView.delegate = self
+        clientImagesCollectionView.dataSource = self
+        clientImagesCollectionView.register(ClientImageCell.self, forCellWithReuseIdentifier: clientImageCellId)
+    }
 }
-
 
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        if collectionView.tag == 0 {
+            return arrayOfHomeImage.count
+        } else {
+            return arrayOfClientImages.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.row {
-        case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: homeImageCollectionViewCellId, for: indexPath) as! HomeCollectionViewImagesCell
-            return cell
-        case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: homeCollectionViewWelcomeTextCellId, for: indexPath) as! HomeCollectionViewWelcomeTextCell
-            return cell
-        case 2:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: homeCollectionViewOurClientCellId, for: indexPath) as! HomeCollectionViewOurClientCell
-            return cell
-        default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: homeCollectionViewCellId, for: indexPath)
-            return cell
+        if collectionView.tag == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imageCellId, for: indexPath) as! ImageCell
+            cell.homeImage = arrayOfHomeImage[indexPath.row]
+        return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: clientImageCellId, for: indexPath) as! ClientImageCell
+            cell.clientImage = arrayOfClientImages[indexPath.row]
+        return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch indexPath.row {
-        case 0:
-            return CGSize(width: collectionView.frame.width, height: collectionView.frame.width * 9/16)
-        case 1:
-            return CGSize(width: collectionView.frame.width, height: 600)
-        case 2:
-            return CGSize(width: collectionView.frame.width, height: collectionView.frame.width * 0.1)
-
-        default:
-            return  CGSize(width: collectionView.frame.width, height: 40)
+        if collectionView.tag == 0 {
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        }
+        else {
+            return CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.height)
         }
     }
     
     
+    
 }
+    
+    
+
+
+

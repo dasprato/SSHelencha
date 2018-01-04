@@ -93,7 +93,7 @@ extension MenuController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mainCollectionViewCellId, for: indexPath) as! MainCollectionViewCell
-        cell.backgroundColor = UIColor(red: 100/255, green: 100/255, blue: (CGFloat(arc4random_uniform(255)))/255, alpha: 1)
+        cell.backgroundColor = UIColor(red: 40/255, green: 40/255, blue: (CGFloat(arc4random_uniform(255)))/255, alpha: 1)
         cell.titleForCellText = arrayOfMenus[indexPath.row]
         return cell
     }
@@ -148,7 +148,7 @@ extension MenuController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width) / 2, height: (collectionView.frame.width) / 2)
+        return CGSize(width: (collectionView.frame.width - 1) / 2, height: (collectionView.frame.width) / 2)
     }
     
 
