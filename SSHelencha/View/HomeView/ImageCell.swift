@@ -49,6 +49,7 @@ class ImageCell: UICollectionViewCell {
         pi.font = UIFont.boldSystemFont(ofSize: 16)
         pi.textColor = UIColor.gray
         pi.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        pi.isUserInteractionEnabled = false
         return pi
     }()
     

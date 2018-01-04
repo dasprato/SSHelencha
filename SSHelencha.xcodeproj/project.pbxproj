@@ -11,6 +11,8 @@
 		D2172A5B1FFD5DF7003F0BD9 /* ImageGalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2172A5A1FFD5DF7003F0BD9 /* ImageGalleryController.swift */; };
 		D2172A5E1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2172A5D1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift */; };
 		D2871C8A1FFE0FA50013BBF3 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2871C891FFE0FA50013BBF3 /* HomeController.swift */; };
+		D2871C8C1FFE5CA50013BBF3 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2871C8B1FFE5CA50013BBF3 /* Project.swift */; };
+		D2871C8F1FFE7FC80013BBF3 /* CommercialImportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2871C8E1FFE7FC80013BBF3 /* CommercialImportCollectionViewCell.swift */; };
 		D2B86FFB1FFD6D4E00CC8EC5 /* EnlargedImageGalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86FFA1FFD6D4E00CC8EC5 /* EnlargedImageGalleryController.swift */; };
 		D2B86FFE1FFD6DBF00CC8EC5 /* EnlargedImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86FFD1FFD6DBF00CC8EC5 /* EnlargedImageCollectionViewCell.swift */; };
 		D2E050C51FFCD79F00E46900 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E050C41FFCD79F00E46900 /* AppDelegate.swift */; };
@@ -43,6 +45,8 @@
 		D2172A5A1FFD5DF7003F0BD9 /* ImageGalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryController.swift; sourceTree = "<group>"; };
 		D2172A5D1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2871C891FFE0FA50013BBF3 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		D2871C8B1FFE5CA50013BBF3 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		D2871C8E1FFE7FC80013BBF3 /* CommercialImportCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommercialImportCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2B86FFA1FFD6D4E00CC8EC5 /* EnlargedImageGalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargedImageGalleryController.swift; sourceTree = "<group>"; };
 		D2B86FFD1FFD6DBF00CC8EC5 /* EnlargedImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargedImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2E050C11FFCD79F00E46900 /* SSHelencha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSHelencha.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +112,14 @@
 			path = ImageGalleryView;
 			sourceTree = "<group>";
 		};
+		D2871C8D1FFE7FAA0013BBF3 /* CommercialImportView */ = {
+			isa = PBXGroup;
+			children = (
+				D2871C8E1FFE7FC80013BBF3 /* CommercialImportCollectionViewCell.swift */,
+			);
+			path = CommercialImportView;
+			sourceTree = "<group>";
+		};
 		D2B86FFC1FFD6D5B00CC8EC5 /* EnlargedImageGalleryView */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +165,7 @@
 		D2E050DA1FFCDAB700E46900 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D2871C8D1FFE7FAA0013BBF3 /* CommercialImportView */,
 				D2B86FFC1FFD6D5B00CC8EC5 /* EnlargedImageGalleryView */,
 				D2172A5C1FFD5EA7003F0BD9 /* ImageGalleryView */,
 				D2E051091FFD520A00E46900 /* DirectorialBodiesView */,
@@ -188,6 +201,7 @@
 				D2E050F71FFD020000E46900 /* HomeImage.swift */,
 				D2E051011FFD231000E46900 /* ClientImage.swift */,
 				D2E0510C1FFD536700E46900 /* Director.swift */,
+				D2871C8B1FFE5CA50013BBF3 /* Project.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -349,6 +363,7 @@
 				D2E050E81FFCF5B500E46900 /* OurServicesController.swift in Sources */,
 				D2E051021FFD231000E46900 /* ClientImage.swift in Sources */,
 				D2E050EA1FFCF5EC00E46900 /* OurResourcesController.swift in Sources */,
+				D2871C8C1FFE5CA50013BBF3 /* Project.swift in Sources */,
 				D2E051061FFD28C700E46900 /* FlexibleTextView.swift in Sources */,
 				D2E050F01FFCF69400E46900 /* OurCapacityController.swift in Sources */,
 				D2E050E21FFCE56700E46900 /* Menu.swift in Sources */,
@@ -358,6 +373,7 @@
 				D2B86FFE1FFD6DBF00CC8EC5 /* EnlargedImageCollectionViewCell.swift in Sources */,
 				D2E050C51FFCD79F00E46900 /* AppDelegate.swift in Sources */,
 				D2E050D91FFCD88000E46900 /* MenuController.swift in Sources */,
+				D2871C8F1FFE7FC80013BBF3 /* CommercialImportCollectionViewCell.swift in Sources */,
 				D2172A5B1FFD5DF7003F0BD9 /* ImageGalleryController.swift in Sources */,
 				D2871C8A1FFE0FA50013BBF3 /* HomeController.swift in Sources */,
 				D2E050F61FFCFD4D00E46900 /* ContactUsController.swift in Sources */,

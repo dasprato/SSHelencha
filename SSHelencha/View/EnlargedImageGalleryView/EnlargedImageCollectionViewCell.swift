@@ -27,7 +27,7 @@ class EnlargedImageCollectionViewCell: UICollectionViewCell {
     }
     
     
-    var vesselImage: UIImageView = {
+    private var vesselImage: UIImageView = {
         let pi = UIImageView()
         pi.translatesAutoresizingMaskIntoConstraints = false
         pi.clipsToBounds = true

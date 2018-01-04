@@ -19,7 +19,6 @@ class MainCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(titleForCell)
-        
         NSLayoutConstraint.activate([titleForCell.centerYAnchor.constraint(equalTo: centerYAnchor), titleForCell.centerXAnchor.constraint(equalTo: centerXAnchor)])
         
     }
