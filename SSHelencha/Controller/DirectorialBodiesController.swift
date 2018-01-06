@@ -22,9 +22,9 @@ class DirectorialBodiesController: UIViewController {
         self.navigationItem.title = "Directorial Bodies"
         
         
-        arrayOfDirectors.append(Director(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t35.0-12/26610057_1551202918262590_85503916_o.jpg?oh=ad6f6dbc41be708426db8edd185cf16d&oe=5A4FEB81", name: "Mr Amal Chandra Das"))
-        arrayOfDirectors.append(Director(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t31.0-8/329043_224915360891359_6864964_o.jpg?oh=7e56d85019b39e7cbca9fc0f81db2aaf&oe=5AB5AD6A", name: "Mrs Bithika Das"))
-        arrayOfDirectors.append(Director(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/20841063_1578736422137217_1117552246881834960_n.jpg?oh=00248662f75afea81b32fe5546eb5b75&oe=5ABD9C4C", name: "Mr Debabrata Das Mithu"))
+        arrayOfDirectors.append(Director(url: "http://sshelenchaltd.com/images/amol_babu.png", name: "Mr Amal Chandra Das"))
+        arrayOfDirectors.append(Director(url: "http://sshelenchaltd.com/images/bithika_das.png", name: "Mrs Bithika Das"))
+        arrayOfDirectors.append(Director(url: "http://sshelenchaltd.com/images/mithu_das.png", name: "Mr Debabrata Das Mithu"))
         
         
         setupDirectorialBodiesCollectionView()

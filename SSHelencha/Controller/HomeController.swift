@@ -9,7 +9,8 @@
 import UIKit
 
 class HomeController: UIViewController {
-
+    var currentCellNumber: IndexPath?
+    var previousCellNumber: IndexPath?
     let imageCellId = "imageCellId"
     var arrayOfHomeImage = [HomeImage]()
     
@@ -31,13 +32,15 @@ class HomeController: UIViewController {
         setupImagesCollectionView()
         setupClientImagesCollectionView()
         setupScrollView()
+        startTimer()
+        
     }
     
     func setupScrollView() {
         view.addSubview(mainScrollView)
         NSLayoutConstraint.activate([mainScrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor), mainScrollView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor), mainScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
         mainScrollView.addSubview(imagesCollectionView)
-        NSLayoutConstraint.activate([imagesCollectionView.heightAnchor.constraint(equalToConstant: view.frame.width * 9/20), imagesCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width), imagesCollectionView.topAnchor.constraint(equalTo: mainScrollView.topAnchor), imagesCollectionView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor)])
+        NSLayoutConstraint.activate([imagesCollectionView.heightAnchor.constraint(equalToConstant: view.frame.width * 3 / 4), imagesCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width), imagesCollectionView.topAnchor.constraint(equalTo: mainScrollView.topAnchor), imagesCollectionView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor)])
         mainScrollView.addSubview(welcomeTextLabel)
         NSLayoutConstraint.activate([welcomeTextLabel.widthAnchor.constraint(equalToConstant: view.frame.width), welcomeTextLabel.topAnchor.constraint(equalTo: imagesCollectionView.bottomAnchor), welcomeTextLabel.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor)])
                 mainScrollView.addSubview(clientImagesCollectionView)
@@ -45,11 +48,54 @@ class HomeController: UIViewController {
 
     }
     
+    var timerForImages: Timer?
+    var timerForTheTimerForImages: Timer?
+    
+    @objc func startTimer() {
+        timerForImages = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(scrollToNextItem), userInfo: nil, repeats: true)
+        
+        RunLoop.current.add(timerForImages!, forMode: RunLoopMode.commonModes)
+    }
+    
+//    func startAnotherTimer() {
+//        timerForTheTimerForImages = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(startTimer), userInfo: nil, repeats: false)
+//
+//        RunLoop.current.add(timerForTheTimerForImages!, forMode: RunLoopMode.commonModes)
+//    }
+    
+    
+    @objc func scrollToNextItem() {
+
+            if (currentCellNumber?.row)! >= arrayOfHomeImage.count - 1 {
+                imagesCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .centeredHorizontally, animated: false)
+                imagesCollectionView.alpha = 0
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.imagesCollectionView.alpha = 1
+                })
+            } else {
+                    imagesCollectionView.scrollToItem(at: IndexPath(row: (currentCellNumber?.row)! + 1, section: 0), at: .centeredHorizontally, animated: false)
+                imagesCollectionView.alpha = 0
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.imagesCollectionView.alpha = 1
+                })
+
+            }
+        
+        
+    }
     
     override func viewDidLayoutSubviews() {
         mainScrollView.contentSize.height = imagesCollectionView.frame.height + welcomeTextLabel.frame.height + clientImagesCollectionView.frame.height
     }
     
+//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+//        timerForImages?.invalidate()
+//        startAnotherTimer()
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+//        startAnotherTimer()
+//    }
     
     func populateArray() {
         arrayOfHomeImage.append(HomeImage(titleOfImage: "Our Deck loader carrying Heavy Lift Cargo", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic8.jpg"))
@@ -60,6 +106,10 @@ class HomeController: UIViewController {
         arrayOfHomeImage.append(HomeImage(titleOfImage: "Heavy lift packages on our barge", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic11.jpg"))
         arrayOfHomeImage.append(HomeImage(titleOfImage: "Heavy lift packages on our barge", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic12.jpg"))
         arrayOfHomeImage.append(HomeImage(titleOfImage: "Project Cargo carrying", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic13.jpg"))
+        arrayOfHomeImage.append(HomeImage(titleOfImage: "Largest Vessel in Karnaphuli", urlOfImage: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/16807571_1301144059983958_4255960948678716341_n.jpg?oh=f49232826f7b50d67fa725ae866c2b67&oe=5AFB2CF6"))
+        arrayOfHomeImage.append(HomeImage(titleOfImage: "Our Stone Import", urlOfImage: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/18622621_1390730447691985_8325192850597822597_n.jpg?oh=ee5142c6b8917cc295ff013da0951a9e&oe=5ABA9B7E"))
+        
+        
         
         
         arrayOfClientImages.append(ClientImage(url: "http://sshelenchaltd.com/images/stories/logo/Summit-Power-Limited-2.jpg"))
@@ -68,6 +118,7 @@ class HomeController: UIViewController {
         arrayOfClientImages.append(ClientImage(url: "http://sshelenchaltd.com/images/stories/logo/BM-Energy_Logo_c-name_100h.jpg"))
         arrayOfClientImages.append(ClientImage(url: "http://sshelenchaltd.com/images/stories/logo/download.png"))
         arrayOfClientImages.append(ClientImage(url: "http://sshelenchaltd.com/images/stories/logo/gulf%20logo.jpg"))
+        
         
     }
     
@@ -94,6 +145,8 @@ class HomeController: UIViewController {
         rcv.keyboardDismissMode = .interactive
         rcv.tag = 0
         rcv.showsHorizontalScrollIndicator = false
+        rcv.isUserInteractionEnabled = false
+        
         return rcv
     }()
     
@@ -194,6 +247,19 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         else {
             return CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.height)
         }
+    }
+    
+    
+    //called when the cell is about to be displayed
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.currentCellNumber = indexPath
+        print(self.currentCellNumber)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+
     }
     
     
