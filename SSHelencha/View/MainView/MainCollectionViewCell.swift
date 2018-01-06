@@ -30,8 +30,9 @@ class MainCollectionViewCell: UICollectionViewCell {
     private var titleForCell: UILabel = {
         let tfc = UILabel()
         tfc.translatesAutoresizingMaskIntoConstraints = false
-        tfc.textColor = UIColor.white
-        tfc.font = UIFont.boldSystemFont(ofSize: tfc.font.pointSize + 3)
+        tfc.textColor = .darkGray
+        tfc.font = UIFont.boldSystemFont(ofSize: 16)
+        tfc.adjustsFontSizeToFitWidth = true
         return tfc
     }()
     

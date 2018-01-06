@@ -61,7 +61,7 @@ class CommercialImportController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         let rcv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        rcv.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        rcv.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
         rcv.backgroundColor = UIColor.white
         rcv.translatesAutoresizingMaskIntoConstraints = false
         rcv.clipsToBounds = true
@@ -77,7 +77,7 @@ class CommercialImportController: UIViewController {
         let tv = FlexibleTextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.textColor = UIColor.darkGray
-        tv.font = UIFont.boldSystemFont(ofSize: 20)
+        tv.font = UIFont.systemFont(ofSize: 16)
         tv.text = "We offer a healthy and nutritious range of food grains which are highly rich in quality.We deliver our products as per the desired needs of our clients.We assure our customer of the complete satisfactory and easy availability of our food grains,mainly included – Australian Lentils Nipper, Chick-pea, Yellow Piece, Wheat, Canadian Crimson lentils, Corn etc."
         tv.isEditable = false
         tv.textAlignment = .center

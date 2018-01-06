@@ -93,7 +93,7 @@ extension MenuController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mainCollectionViewCellId, for: indexPath) as! MainCollectionViewCell
-        cell.backgroundColor = UIColor(red: 40/255, green: 40/255, blue: (CGFloat(arc4random_uniform(255)))/255, alpha: 1)
+        cell.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: (CGFloat(arc4random_uniform(255)))/255)
         cell.titleForCellText = arrayOfMenus[indexPath.row]
         return cell
     }
@@ -134,13 +134,7 @@ extension MenuController: UICollectionViewDelegate, UICollectionViewDataSource, 
             break
         }
     }
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        print(indexPath.row)
 
-    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.currentCellIndex = indexPath.row

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4738F9CD700145BCA076DF34 /* Pods_SSHelencha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0503B716F58C8A4EF6B131 /* Pods_SSHelencha.framework */; };
+		D2062C822000FD66000791BA /* OurResourcesTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2062C812000FD66000791BA /* OurResourcesTypeCollectionViewCell.swift */; };
+		D2062C8420010293000791BA /* OurResourcesDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2062C8320010293000791BA /* OurResourcesDataCell.swift */; };
+		D2062C86200102BC000791BA /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2062C85200102BC000791BA /* Resource.swift */; };
 		D2172A5B1FFD5DF7003F0BD9 /* ImageGalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2172A5A1FFD5DF7003F0BD9 /* ImageGalleryController.swift */; };
 		D2172A5E1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2172A5D1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift */; };
 		D2871C8A1FFE0FA50013BBF3 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2871C891FFE0FA50013BBF3 /* HomeController.swift */; };
@@ -42,6 +45,9 @@
 		1EFCB997309BC51465F6A975 /* Pods-SSHelencha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSHelencha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SSHelencha/Pods-SSHelencha.debug.xcconfig"; sourceTree = "<group>"; };
 		4A0503B716F58C8A4EF6B131 /* Pods_SSHelencha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSHelencha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A49CA6D5F57A2FBBD8C44E7 /* Pods-SSHelencha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSHelencha.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSHelencha/Pods-SSHelencha.release.xcconfig"; sourceTree = "<group>"; };
+		D2062C812000FD66000791BA /* OurResourcesTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurResourcesTypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D2062C8320010293000791BA /* OurResourcesDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurResourcesDataCell.swift; sourceTree = "<group>"; };
+		D2062C85200102BC000791BA /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		D2172A5A1FFD5DF7003F0BD9 /* ImageGalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryController.swift; sourceTree = "<group>"; };
 		D2172A5D1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2871C891FFE0FA50013BBF3 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -102,6 +108,15 @@
 				4A0503B716F58C8A4EF6B131 /* Pods_SSHelencha.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2062C802000FD2D000791BA /* OurResourcesView */ = {
+			isa = PBXGroup;
+			children = (
+				D2062C812000FD66000791BA /* OurResourcesTypeCollectionViewCell.swift */,
+				D2062C8320010293000791BA /* OurResourcesDataCell.swift */,
+			);
+			path = OurResourcesView;
 			sourceTree = "<group>";
 		};
 		D2172A5C1FFD5EA7003F0BD9 /* ImageGalleryView */ = {
@@ -165,6 +180,7 @@
 		D2E050DA1FFCDAB700E46900 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D2062C802000FD2D000791BA /* OurResourcesView */,
 				D2871C8D1FFE7FAA0013BBF3 /* CommercialImportView */,
 				D2B86FFC1FFD6D5B00CC8EC5 /* EnlargedImageGalleryView */,
 				D2172A5C1FFD5EA7003F0BD9 /* ImageGalleryView */,
@@ -202,6 +218,7 @@
 				D2E051011FFD231000E46900 /* ClientImage.swift */,
 				D2E0510C1FFD536700E46900 /* Director.swift */,
 				D2871C8B1FFE5CA50013BBF3 /* Project.swift */,
+				D2062C85200102BC000791BA /* Resource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -368,9 +385,11 @@
 				D2E050F01FFCF69400E46900 /* OurCapacityController.swift in Sources */,
 				D2E050E21FFCE56700E46900 /* Menu.swift in Sources */,
 				D2E050F21FFCFD3000E46900 /* ProjectsController.swift in Sources */,
+				D2062C8420010293000791BA /* OurResourcesDataCell.swift in Sources */,
 				D2E050EE1FFCF62400E46900 /* CommercialImportController.swift in Sources */,
 				D2E051041FFD239200E46900 /* ClientImageCell.swift in Sources */,
 				D2B86FFE1FFD6DBF00CC8EC5 /* EnlargedImageCollectionViewCell.swift in Sources */,
+				D2062C86200102BC000791BA /* Resource.swift in Sources */,
 				D2E050C51FFCD79F00E46900 /* AppDelegate.swift in Sources */,
 				D2E050D91FFCD88000E46900 /* MenuController.swift in Sources */,
 				D2871C8F1FFE7FC80013BBF3 /* CommercialImportCollectionViewCell.swift in Sources */,
@@ -378,6 +397,7 @@
 				D2871C8A1FFE0FA50013BBF3 /* HomeController.swift in Sources */,
 				D2E050F61FFCFD4D00E46900 /* ContactUsController.swift in Sources */,
 				D2E050F41FFCFD4000E46900 /* DirectorialBodiesController.swift in Sources */,
+				D2062C822000FD66000791BA /* OurResourcesTypeCollectionViewCell.swift in Sources */,
 				D2172A5E1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift in Sources */,
 				D2E050E41FFCE69000E46900 /* MainCollectionViewCell.swift in Sources */,
 				D2E0510B1FFD523200E46900 /* DirectorialBodiesCollectionViewCell.swift in Sources */,
@@ -517,11 +537,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3RWTRYXPAB;
+				DEVELOPMENT_TEAM = B4K37TQC3B;
 				INFOPLIST_FILE = SSHelencha/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.utoronto.student.das.SSHelencha;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.das.SSHelencha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SSHelencha/SSHelencha-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -537,11 +557,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3RWTRYXPAB;
+				DEVELOPMENT_TEAM = B4K37TQC3B;
 				INFOPLIST_FILE = SSHelencha/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.utoronto.student.das.SSHelencha;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.das.SSHelencha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SSHelencha/SSHelencha-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

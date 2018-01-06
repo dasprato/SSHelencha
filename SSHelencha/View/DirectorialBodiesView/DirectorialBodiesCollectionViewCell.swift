@@ -48,8 +48,8 @@ class DirectorialBodiesCollectionViewCell: UICollectionViewCell {
         pi.translatesAutoresizingMaskIntoConstraints = false
         pi.contentMode = .scaleAspectFit
         pi.textAlignment = .center
-        pi.font = UIFont.boldSystemFont(ofSize: pi.font.pointSize + 5)
-        pi.textColor = UIColor.gray
+        pi.font = UIFont.boldSystemFont(ofSize: 16)
+        pi.textColor = .darkGray
         return pi
     }()
     

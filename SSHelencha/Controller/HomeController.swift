@@ -36,7 +36,6 @@ class HomeController: UIViewController {
     func setupScrollView() {
         view.addSubview(mainScrollView)
         NSLayoutConstraint.activate([mainScrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor), mainScrollView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor), mainScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
-        mainScrollView.contentSize.height = 1000
         mainScrollView.addSubview(imagesCollectionView)
         NSLayoutConstraint.activate([imagesCollectionView.heightAnchor.constraint(equalToConstant: view.frame.width * 9/20), imagesCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width), imagesCollectionView.topAnchor.constraint(equalTo: mainScrollView.topAnchor), imagesCollectionView.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor)])
         mainScrollView.addSubview(welcomeTextLabel)
@@ -117,10 +116,39 @@ class HomeController: UIViewController {
     var welcomeTextLabel: FlexibleTextView = {
         let wtl = FlexibleTextView()
         wtl.translatesAutoresizingMaskIntoConstraints = false
-        wtl.textColor = UIColor.lightGray
-        wtl.font = UIFont.boldSystemFont(ofSize: 14)
+        wtl.textColor = UIColor.darkGray
+        wtl.font = UIFont.boldSystemFont(ofSize: 16)
         wtl.isUserInteractionEnabled = false
-        wtl.text = "Welcome to the SS Helencha Limited Company profile. At SS Helencha, we understand that your primary concern is to get your freight from one point to another point, safely and reliably. With more than 5 years of experience in the logistics industry since 2010, we can provide you with the peace of mind you need to trust us with your freight\n\nLogistics is the backbone of commerce, and our working experience with multi-national companies and strong financial strengths allows handling more than 2 Lac Metric Tons of cargo per year. Our employees our same conviction for on-time delivery of cargo and our fleet of Vessels, Barges, Tug Boats & Cranes ensure that we have the right solution for your shipping needs.\n\nWe believe that serving our clients is our top priority! To demonstrate our commitment to that philosophy, we are nearing completion of an additional three vessels, two drum Barge and one Tug Boat. We expect to take delivery of these vessels, Barge and Tug Boat 2016, and the extra capacity means that we can handle an even bigger workload to support our growing clients.\n\nWhy place your trust in lesser companies and risk delayed shipments or damaged cargo? At SS Helencha, our number one priority is ensuring that your cargo arrives at its destination free of damages and free of delays. Contact us today to discuss how we can meet and exceed your shipping needs."
+        
+        var textToSet = NSMutableAttributedString()
+        let text1 = NSMutableAttributedString(string: "Welcome to the ", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        let text2 = NSMutableAttributedString(string: "SS Helencha Limited ", attributes: [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        
+                let text3 = NSMutableAttributedString(string: "Company profile. ", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        
+                let text4 = NSMutableAttributedString(string: "At ", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        
+                let text5 = NSMutableAttributedString(string: "SS Helencha", attributes: [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        
+                let text6 = NSMutableAttributedString(string: ", we understand that your primary concern is to get your freight from one point to another point, safely and reliably. With more than 5 years of experience in the logistics industry since 2010, we can provide you with the peace of mind you need to trust us with your freight\n\nLogistics is the backbone of commerce, and our working experience with multi-national companies and strong financial strengths allows handling more than 2 Lac Metric Tons of cargo per year. Our employees our same conviction for on-time delivery of cargo and our fleet of Vessels, Barges, Tug Boats & Cranes ensure that we have the right solution for your shipping needs.\n\nWe believe that serving our clients is our top priority! To demonstrate our commitment to that philosophy, we are nearing completion of an additional three vessels, two drum Barge and one Tug Boat. We expect to take delivery of these vessels, Barge and Tug Boat 2016, and the extra capacity means that we can handle an even bigger workload to support our growing clients.\n\nWhy place your trust in lesser companies and risk delayed shipments or damaged cargo? At, ", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        
+        
+                        let text7 = NSMutableAttributedString(string: "SS Helencha ", attributes: [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+        
+                        let text8 = NSMutableAttributedString(string: "our number one priority is ensuring that your cargo arrives at its destination free of damages and free of delays. Contact us today to discuss how we can meet and exceed your shipping needs.", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.darkGray])
+
+        
+        textToSet.append(text1)
+        textToSet.append(text2)
+        textToSet.append(text3)
+        textToSet.append(text4)
+        textToSet.append(text5)
+        textToSet.append(text6)
+        textToSet.append(text7)
+        textToSet.append(text8)
+        wtl.attributedText = textToSet
+        
+    
         return wtl
     }()
     
