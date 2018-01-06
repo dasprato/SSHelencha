@@ -41,7 +41,7 @@ class EnlargedImageGalleryController: UIViewController {
         imagesCollectionView.register(EnlargedImageCollectionViewCell.self, forCellWithReuseIdentifier: imageGalleryCollectionViewCellId)
         
         view.addSubview(imagesCollectionView)
-        NSLayoutConstraint.activate([imagesCollectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor), imagesCollectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor), imagesCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor), imagesCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)])
+        NSLayoutConstraint.activate([imagesCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor), imagesCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor), imagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor), imagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor)])
         
     }
 
@@ -72,6 +72,7 @@ class EnlargedImageGalleryController: UIViewController {
     }
     
 
+    
 }
 
 
@@ -82,12 +83,14 @@ extension EnlargedImageGalleryController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imageGalleryCollectionViewCellId, for: indexPath) as! EnlargedImageCollectionViewCell
-        cell.backgroundColor = UIColor(red: 100/255, green: 100/255, blue: (CGFloat(arc4random_uniform(255)))/255, alpha: 1)
 //        cell.vesselImage.image = UIImage(named: "MainLogo")
         cell.image = arrayOfImages?[indexPath.row]
         return cell
     }
     
+//    func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+//        return .allButUpsideDown
+//    }
     
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
@@ -101,8 +104,17 @@ extension EnlargedImageGalleryController: UICollectionViewDelegate, UICollection
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.landscapeRight, andRotateTo: UIInterfaceOrientation.landscapeRight)
+    }
     
+    override func viewWillDisappear(_ animated : Bool) {
+        super.viewWillDisappear(animated)
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+    }
     
     
     
 }
+
+

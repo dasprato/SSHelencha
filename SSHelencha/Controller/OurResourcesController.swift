@@ -29,7 +29,7 @@ class OurResourcesController: UIViewController {
 
         
         view.addSubview(resourceTypeCollectionView)
-        NSLayoutConstraint.activate([resourceTypeCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), resourceTypeCollectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor), resourceTypeCollectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor), resourceTypeCollectionView.heightAnchor.constraint(equalToConstant: 40)])
+        NSLayoutConstraint.activate([resourceTypeCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), resourceTypeCollectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor), resourceTypeCollectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor), resourceTypeCollectionView.heightAnchor.constraint(equalToConstant: 60)])
         view.addSubview(ourResourcesDataCollectionView)
         NSLayoutConstraint.activate([ourResourcesDataCollectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor), ourResourcesDataCollectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor), ourResourcesDataCollectionView.topAnchor.constraint(equalTo: resourceTypeCollectionView.bottomAnchor), ourResourcesDataCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
         populateArray()
@@ -115,7 +115,7 @@ class OurResourcesController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         let rcv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        rcv.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+        rcv.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         rcv.backgroundColor = UIColor.white
         rcv.translatesAutoresizingMaskIntoConstraints = false
         rcv.clipsToBounds = true

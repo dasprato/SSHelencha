@@ -106,7 +106,7 @@ class HomeController: UIViewController {
         arrayOfHomeImage.append(HomeImage(titleOfImage: "Heavy lift packages on our barge", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic11.jpg"))
         arrayOfHomeImage.append(HomeImage(titleOfImage: "Heavy lift packages on our barge", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic12.jpg"))
         arrayOfHomeImage.append(HomeImage(titleOfImage: "Project Cargo carrying", urlOfImage: "http://sshelenchaltd.com/images/stories/slider/pic13.jpg"))
-        arrayOfHomeImage.append(HomeImage(titleOfImage: "Largest Vessel in Karnaphuli", urlOfImage: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/16807571_1301144059983958_4255960948678716341_n.jpg?oh=f49232826f7b50d67fa725ae866c2b67&oe=5AFB2CF6"))
+        arrayOfHomeImage.append(HomeImage(titleOfImage: "Largest Vessel in Karnaphuli", urlOfImage: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/14141727_1128799840551715_7980445216783744052_n.jpg?oh=ef04f7512fcaa6f943a0aa335d75ddbe&oe=5AE7F0D7"))
         arrayOfHomeImage.append(HomeImage(titleOfImage: "Our Stone Import", urlOfImage: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/18622621_1390730447691985_8325192850597822597_n.jpg?oh=ee5142c6b8917cc295ff013da0951a9e&oe=5ABA9B7E"))
         
         
@@ -252,8 +252,11 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     //called when the cell is about to be displayed
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+        if collectionView.tag == 0 {
         self.currentCellNumber = indexPath
         print(self.currentCellNumber)
+        }
         
     }
     

@@ -11,6 +11,10 @@ import UIKit
 class ImageGalleryCollectionViewCell: UICollectionViewCell {
     var image: ClientImage? {
         didSet {
+            vesselImage.alpha = 0
+            UIView.animate(withDuration: 0.3) {
+                self.vesselImage.alpha = 1
+            }
             vesselImage.sd_setImage(with: URL(string: (image?.url)!), placeholderImage: UIImage(), options: [.continueInBackground, .progressiveDownload])
         }
     }

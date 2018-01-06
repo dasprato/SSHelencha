@@ -81,6 +81,45 @@ class ImageGalleryController: UIViewController {
         arrayOfImages.append(ClientImage(url: "http://sshelenchaltd.com/images/gallery/20160208_160347.jpg"))
         arrayOfImages.append(ClientImage(url: "http://sshelenchaltd.com/images/gallery/20160208_162206.jpg"))
         arrayOfImages.append(ClientImage(url: "http://sshelenchaltd.com/images/gallery/DSC_0251.jpg"))
+        
+
+        
+        // FACEBOOK IMAGES
+        arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/14141727_1128799840551715_7980445216783744052_n.jpg?oh=ef04f7512fcaa6f943a0aa335d75ddbe&oe=5AE7F0D7"))
+
+        arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/15241753_1223425964422435_6548901255266467882_n.jpg?oh=fafdf1f12bb7b5beebacdf3e51638b66&oe=5ABE7079"))
+
+        arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/15268080_1223423887755976_6405335026912390114_n.jpg?oh=07e7030d7405ea479256481c027ce608&oe=5ABB1783"))
+
+        arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/15319034_1229179610513737_968353336052612020_n.jpg?oh=ee108c0140f40e3b24f311b44109cb89&oe=5AFDE296"))
+
+        arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/15401039_1229180327180332_3473537793565881641_n.jpg?oh=ca8ed4518208a5572b1fac9b2d37f6a8&oe=5AC022B0"))
+
+        arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/15380673_1229181477180217_3880049585577372454_n.jpg?oh=e00151b3d49645d4798614bcf872008d&oe=5AB0637C"))
+
+        arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/25398730_1593714327393595_2670795217632731462_n.jpg?oh=a7ae662723a03d4cd8b543d03d44f71e&oe=5ABAC5B7"))
+
+    
+            arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/18622621_1390730447691985_8325192850597822597_n.jpg?oh=ee5142c6b8917cc295ff013da0951a9e&oe=5ABA9B7E"))
+        
+                    arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/19989362_1434925253272504_5880898257310507924_n.jpg?oh=5bcd3e666671ed02c1e6cb3c95c2db57&oe=5AF72013"))
+
+                    arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/13507043_1085548464876853_297404287695416257_n.jpg?oh=637d928347f5bb9f2a7fb59b867b73e6&oe=5AF47980"))
+        
+                    arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/19366626_1415360061895690_4843561367662674000_n.jpg?oh=85d8e67a6aedcaf3355075ca4d421b76&oe=5AB4442C"))
+        
+                    arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/12814226_1015428745222159_2225579084268427441_n.jpg?oh=9b76be96d3e3b57d5d3684b4079d46db&oe=5AF03EF0"))
+        
+                            arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/12802909_1015428208555546_3363266442396933959_n.jpg?oh=395b9baa6a7ff948ade83ded81acd93c&oe=5AB1DD39"))
+        
+                                    arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/20431224_1449184781846551_1903550986012977272_n.jpg?oh=abc87b4c4333a616b6f5c095823a7674&oe=5AB2637E"))
+        
+                                    arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/19959154_1434491143315915_2501489087700709212_n.jpg?oh=5bf9b75261efdc73aa8aff314f212227&oe=5AB6BBD4"))
+
+        arrayOfImages.append(ClientImage(url: "https://scontent.fyto1-1.fna.fbcdn.net/v/t1.0-9/12806084_1015429481888752_697450596181211200_n.jpg?oh=913c6674d898b59e12819dd95790e68b&oe=5AFD0DBD"))
+
+        
+
     }
     
     func setupImageGalleryCollectionView() {

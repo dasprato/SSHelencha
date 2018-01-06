@@ -20,7 +20,7 @@ class OurResourcesTypeCollectionViewCell: UICollectionViewCell {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(titleForToggle)
-        NSLayoutConstraint.activate([titleForToggle.centerXAnchor.constraint(equalTo: centerXAnchor), titleForToggle.centerYAnchor.constraint(equalTo: centerYAnchor), titleForToggle.widthAnchor.constraint(equalTo: widthAnchor), titleForToggle.heightAnchor.constraint(equalToConstant: 32)])
+        NSLayoutConstraint.activate([titleForToggle.centerXAnchor.constraint(equalTo: centerXAnchor), titleForToggle.centerYAnchor.constraint(equalTo: centerYAnchor), titleForToggle.widthAnchor.constraint(equalTo: widthAnchor), titleForToggle.heightAnchor.constraint(equalTo: heightAnchor)])
     }
     
     required init?(coder aDecoder: NSCoder) {

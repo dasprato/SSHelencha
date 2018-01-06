@@ -55,6 +55,12 @@ class MenuController: UIViewController{
         NSLayoutConstraint.activate([mainCollectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor), mainCollectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor), mainCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor), mainCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)])
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
+            self.mainCollectionView.reloadData()
+        
+    }
 
     
 
@@ -93,11 +99,17 @@ extension MenuController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mainCollectionViewCellId, for: indexPath) as! MainCollectionViewCell
-        cell.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: (CGFloat(arc4random_uniform(255)))/255)
+        if !collectionView.isDragging || !collectionView.isDecelerating {
+        UIView.animate(withDuration: 0.3) {
+            cell.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: (CGFloat(arc4random_uniform(255)))/255)
+        }
+        }
+        
         cell.titleForCellText = arrayOfMenus[indexPath.row]
         return cell
     }
     
+
     @objc func open() {
         switch currentCellIndex {
         case 0:
@@ -144,6 +156,11 @@ extension MenuController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (collectionView.frame.width - 1) / 2, height: (collectionView.frame.width) / 2)
     }
+    
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+
     
 
     

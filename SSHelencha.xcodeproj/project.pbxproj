@@ -11,6 +11,7 @@
 		D2062C822000FD66000791BA /* OurResourcesTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2062C812000FD66000791BA /* OurResourcesTypeCollectionViewCell.swift */; };
 		D2062C8420010293000791BA /* OurResourcesDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2062C8320010293000791BA /* OurResourcesDataCell.swift */; };
 		D2062C86200102BC000791BA /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2062C85200102BC000791BA /* Resource.swift */; };
+		D2062C8D200175AA000791BA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2062C8C200175AA000791BA /* Extension.swift */; };
 		D2172A5B1FFD5DF7003F0BD9 /* ImageGalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2172A5A1FFD5DF7003F0BD9 /* ImageGalleryController.swift */; };
 		D2172A5E1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2172A5D1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift */; };
 		D2871C8A1FFE0FA50013BBF3 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2871C891FFE0FA50013BBF3 /* HomeController.swift */; };
@@ -48,6 +49,7 @@
 		D2062C812000FD66000791BA /* OurResourcesTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurResourcesTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2062C8320010293000791BA /* OurResourcesDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurResourcesDataCell.swift; sourceTree = "<group>"; };
 		D2062C85200102BC000791BA /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		D2062C8C200175AA000791BA /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D2172A5A1FFD5DF7003F0BD9 /* ImageGalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryController.swift; sourceTree = "<group>"; };
 		D2172A5D1FFD5EC1003F0BD9 /* ImageGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2871C891FFE0FA50013BBF3 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				D2E050D01FFCD79F00E46900 /* Info.plist */,
 				D2E050DE1FFCE09400E46900 /* SSHelencha-Bridging-Header.h */,
 				D2E051051FFD28C700E46900 /* FlexibleTextView.swift */,
+				D2062C8C200175AA000791BA /* Extension.swift */,
 			);
 			path = SSHelencha;
 			sourceTree = "<group>";
@@ -326,10 +329,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SSHelencha/Pods-SSHelencha-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ImageScrollView/ImageScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +397,7 @@
 				D2062C86200102BC000791BA /* Resource.swift in Sources */,
 				D2E050C51FFCD79F00E46900 /* AppDelegate.swift in Sources */,
 				D2E050D91FFCD88000E46900 /* MenuController.swift in Sources */,
+				D2062C8D200175AA000791BA /* Extension.swift in Sources */,
 				D2871C8F1FFE7FC80013BBF3 /* CommercialImportCollectionViewCell.swift in Sources */,
 				D2172A5B1FFD5DF7003F0BD9 /* ImageGalleryController.swift in Sources */,
 				D2871C8A1FFE0FA50013BBF3 /* HomeController.swift in Sources */,

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import ImageScrollView
 
-class EnlargedImageCollectionViewCell: UICollectionViewCell {
+class EnlargedImageCollectionViewCell: UICollectionViewCell, UIScrollViewDelegate {
     var image: ClientImage? {
         didSet {
             vesselImage.sd_setImage(with: URL(string: (image?.url)!), placeholderImage: #imageLiteral(resourceName: "placeHolder"), options: [.continueInBackground, .progressiveDownload])
@@ -18,8 +19,21 @@ class EnlargedImageCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(vesselImage)
-        NSLayoutConstraint.activate([vesselImage.topAnchor.constraint(equalTo: topAnchor), vesselImage.leftAnchor.constraint(equalTo: leftAnchor), vesselImage.rightAnchor.constraint(equalTo: rightAnchor), vesselImage.bottomAnchor.constraint(equalTo: bottomAnchor)])
+        contentView.addSubview(vesselImageScroll)
+        NSLayoutConstraint.activate([vesselImageScroll.topAnchor.constraint(equalTo: topAnchor), vesselImageScroll.leftAnchor.constraint(equalTo: leftAnchor), vesselImageScroll.rightAnchor.constraint(equalTo: rightAnchor), vesselImageScroll.bottomAnchor.constraint(equalTo: bottomAnchor)])
+        vesselImageScroll.addSubview(vesselImage)
+        NSLayoutConstraint.activate([vesselImage.centerXAnchor.constraint(equalTo: vesselImageScroll.centerXAnchor), vesselImage.centerYAnchor.constraint(equalTo: vesselImageScroll.centerYAnchor), vesselImage.widthAnchor.constraint(equalTo: vesselImageScroll.widthAnchor), vesselImage.heightAnchor.constraint(equalTo: vesselImageScroll.heightAnchor)])
+        
+        
+        vesselImageScroll.minimumZoomScale = 1.0
+        vesselImageScroll.maximumZoomScale = 6.0
+        vesselImageScroll.delegate = self
+        backgroundColor = UIColor.clear
+        
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return vesselImage
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,12 +41,23 @@ class EnlargedImageCollectionViewCell: UICollectionViewCell {
     }
     
     
+    private var vesselImageScroll: UIScrollView = {
+        let pi = UIScrollView()
+        pi.translatesAutoresizingMaskIntoConstraints = false
+        pi.alwaysBounceVertical = false
+        pi.alwaysBounceHorizontal = false
+        pi.backgroundColor = UIColor.clear
+        pi.showsVerticalScrollIndicator = false
+        pi.showsHorizontalScrollIndicator = false
+        return pi
+    }()
+    
     private var vesselImage: UIImageView = {
         let pi = UIImageView()
         pi.translatesAutoresizingMaskIntoConstraints = false
         pi.clipsToBounds = true
         pi.contentMode = .scaleAspectFit
-        pi.backgroundColor = UIColor.black
+        pi.backgroundColor = UIColor.clear
         return pi
     }()
 }
